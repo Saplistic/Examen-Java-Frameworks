@@ -1,5 +1,6 @@
 package be.ehb.jfexamen.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class Reporter {
     private String naam;
     private String email;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "reporter")
     private List<Artikel> artikelen;
 
