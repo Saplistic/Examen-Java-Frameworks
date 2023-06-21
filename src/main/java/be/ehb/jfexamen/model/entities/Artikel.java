@@ -22,4 +22,51 @@ public class Artikel {
     @ManyToMany
     private List<Tags> tags;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getPublicatieDatum() {
+        return publicatieDatum;
+    }
+
+    public void setPublicatieDatum(Date publicatieDatum) {
+        this.publicatieDatum = publicatieDatum;
+    }
+
+    public String getTitel() {
+        return titel;
+    }
+
+    public void setTitel(String titel) {
+        this.titel = titel;
+    }
+
+    public String getInhoud() {
+        return inhoud;
+    }
+
+    public void setInhoud(String inhoud) {
+        this.inhoud = inhoud;
+    }
+
+    public Reporter getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(Reporter reporter) {
+        this.reporter = reporter;
+    }
+
+    public List<Tags> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tags> tags) {
+        this.tags = tags;
+    }
 }

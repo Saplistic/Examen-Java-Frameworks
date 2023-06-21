@@ -18,4 +18,28 @@ public class Tags {
     public Tags(List<Artikel> artikelen) {
         this.artikelen = artikelen;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public List<Artikel> getArtikelen() {
+        return artikelen;
+    }
+
+    public void setArtikelen(List<Artikel> artikelen) {
+        this.artikelen = artikelen;
+    }
 }
