@@ -1,5 +1,6 @@
 package be.ehb.jfexamen.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import javax.xml.crypto.Data;
@@ -20,7 +21,17 @@ public class Artikel {
     @JoinColumn(name = "reporter_id", nullable = false)
     private Reporter reporter;
     @ManyToMany
+    @JsonIgnore
     private List<Tags> tags;
+
+    public Artikel(Reporter reporter, List<Tags> tags) {
+        this.reporter = reporter;
+        this.tags = tags;
+    }
+
+    public Artikel() {
+
+    }
 
     public int getId() {
         return id;
