@@ -25,7 +25,7 @@ public class ArtikelController {
     }
 
     @PutMapping("/artikels")
-    private HttpStatus updateArtikel(@RequestParam int id,
+    public HttpStatus updateArtikel(@RequestParam int id,
                                      @RequestParam String titel,
                                      @RequestParam String inhoud) {
 
@@ -37,6 +37,16 @@ public class ArtikelController {
         artikelToUpdate.setTitel(titel);
         artikelToUpdate.setInhoud(inhoud);
         mArtikelDAO.save(artikelToUpdate);
+        return HttpStatus.OK;
+    }
+
+    @DeleteMapping("/artikels")
+    public HttpStatus deleteArtikel(@RequestParam int id) {
+        if (!mArtikelDAO.existsById(id)) {
+            return HttpStatus.NOT_FOUND;
+        }
+
+        mArtikelDAO.deleteById(id);
         return HttpStatus.OK;
     }
 }
