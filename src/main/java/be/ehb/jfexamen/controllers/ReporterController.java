@@ -17,8 +17,13 @@ public class ReporterController {
     }
 
     @GetMapping("/reporters")
-    private Iterable<Reporter> getAllReporters() {
+    public Iterable<Reporter> getAllReporters() {
         return mReporterDAO.findAll();
+    }
+
+    @GetMapping("/reporter/{naam}")
+    public Iterable findReportersByName(@PathVariable String naam) {
+        return mReporterDAO.findAllByNaam(naam);
     }
 
     @PostMapping("/reporter")
