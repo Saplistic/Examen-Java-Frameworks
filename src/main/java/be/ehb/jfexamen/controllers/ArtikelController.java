@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 
 @RequestMapping("/api")
@@ -48,5 +50,12 @@ public class ArtikelController {
 
         mArtikelDAO.deleteById(id);
         return HttpStatus.OK;
+    }
+
+    @GetMapping("/currentNews")
+    public Iterable getCurrentlyPublishedArtikels() {
+        LocalDate currentDate = LocalDate.now();
+        Date currentDateTime = java.sql.Timestamp.valueOf(currentDate.atStartOfDay());
+        return mArtikelDAO.getArtikelByPublicatieDatum(currentDateTime);
     }
 }
