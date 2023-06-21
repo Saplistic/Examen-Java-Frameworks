@@ -1,5 +1,5 @@
 package be.ehb.jfexamen.model.entities;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -12,11 +12,16 @@ public class Tags {
     private int id;
     private String naam;
 
+    @JsonIgnore
     @ManyToMany
     private List<Artikel> artikelen;
 
     public Tags(List<Artikel> artikelen) {
         this.artikelen = artikelen;
+    }
+
+    public Tags() {
+
     }
 
     public int getId() {

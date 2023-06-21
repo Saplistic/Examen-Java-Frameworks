@@ -1,9 +1,6 @@
 package be.ehb.jfexamen.model.entities;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-
-import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class Artikel {
     @JoinColumn(name = "reporter_id", nullable = false)
     private Reporter reporter;
     @ManyToMany
-    @JsonIgnore
+    @JsonIgnoreProperties
     private List<Tags> tags;
 
     public Artikel(Reporter reporter, List<Tags> tags) {
